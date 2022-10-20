@@ -1,6 +1,7 @@
 package com.example.silennt_hours
 
 import android.app.PendingIntent
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.silennt_hours.databinding.ActivityMainBinding
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         bind = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(bind.root)
+         bind.floatingActionButton.setOnClickListener {
+               val inte = Intent(this,floatData::class.java)
+             startActivity(inte)
+         }
 
 
 
