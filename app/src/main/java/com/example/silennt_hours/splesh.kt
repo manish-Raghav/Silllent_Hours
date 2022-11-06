@@ -16,6 +16,6 @@ class splesh : AppCompatActivity() {
             val  intet = Intent(this ,MainActivity::class.java)
             startActivity(intet)
             finish()
-        },4000)
+        },3000)
     }
 }
