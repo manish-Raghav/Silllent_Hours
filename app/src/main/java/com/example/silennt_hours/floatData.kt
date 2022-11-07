@@ -30,8 +30,17 @@ class floatData : AppCompatActivity() {
     lateinit var fvcalendar: Calendar
     lateinit var sixcalendar: Calendar
     lateinit var svcalendar: Calendar
-    lateinit var padding: PendingIntent
     lateinit var spadding: PendingIntent
+    lateinit var mpadding: PendingIntent
+    lateinit var tpadding: PendingIntent
+    lateinit var wpadding: PendingIntent
+    lateinit var thpadding: PendingIntent
+    lateinit var frpadding: PendingIntent
+    lateinit var stpadding: PendingIntent
+
+    lateinit var repadding: PendingIntent
+
+//    lateinit var spadding: PendingIntent
     lateinit var Alam: AlarmManager
     lateinit var k :String
     lateinit var sm:String
@@ -60,8 +69,8 @@ class floatData : AppCompatActivity() {
             Endtime()
         }
         bindf.su.setOnClickListener {
-             //su =1;
-             arrayList.add(1)
+             su =1
+//             arrayList.add(1)
             fcalendar= Calendar.getInstance()
             fcalendar[Calendar.DAY_OF_WEEK]=su
             fcalendar[Calendar.HOUR_OF_DAY]=mat.hour
@@ -71,65 +80,64 @@ class floatData : AppCompatActivity() {
 
         }
         bindf.mu.setOnClickListener {
-            //mu =2;
-            arrayList.add(1)
-//            scalendar= Calendar.getInstance()
-//            scalendar[Calendar.DAY_OF_WEEK]=mu
-//            scalendar[Calendar.HOUR_OF_DAY]=mat.hour
-//            scalendar[Calendar.MINUTE] = mat.minute
-//            scalendar[Calendar.SECOND] =0
-//            scalendar[Calendar.MILLISECOND] =0
+            mu =2
+            scalendar= Calendar.getInstance()
+            scalendar[Calendar.DAY_OF_WEEK]=mu
+            scalendar[Calendar.HOUR_OF_DAY]=mat.hour
+            scalendar[Calendar.MINUTE] = mat.minute
+            scalendar[Calendar.SECOND] =0
+            scalendar[Calendar.MILLISECOND] =0
         }
         bindf.tu.setOnClickListener {
-            //tu =3;
+            tu =3
 //            arrayList.add(1)
-//            tcalendar= Calendar.getInstance()
-//            tcalendar[Calendar.DAY_OF_WEEK]=tu
-//            tcalendar[Calendar.HOUR_OF_DAY]=mat.hour
-//            tcalendar[Calendar.MINUTE] = mat .minute
-//            tcalendar[Calendar.SECOND] =0
-//            tcalendar[Calendar.MILLISECOND] =0
+            tcalendar= Calendar.getInstance()
+            tcalendar[Calendar.DAY_OF_WEEK]=tu
+            tcalendar[Calendar.HOUR_OF_DAY]=mat.hour
+            tcalendar[Calendar.MINUTE] = mat .minute
+            tcalendar[Calendar.SECOND] =0
+            tcalendar[Calendar.MILLISECOND] =0
         }
         bindf.we.setOnClickListener {
-//            we =4;
+            we =4
             arrayList.add(4)
 
-//            fourcalendar= Calendar.getInstance()
-//            fourcalendar[Calendar.DAY_OF_WEEK]=we
-//            fourcalendar[Calendar.HOUR_OF_DAY]=mat.hour
-//            fourcalendar[Calendar.MINUTE] = mat .minute
-//            fourcalendar[Calendar.SECOND] =0
-//            fourcalendar[Calendar.MILLISECOND] =0
+            fourcalendar= Calendar.getInstance()
+            fourcalendar[Calendar.DAY_OF_WEEK]=we
+            fourcalendar[Calendar.HOUR_OF_DAY]=mat.hour
+            fourcalendar[Calendar.MINUTE] = mat .minute
+            fourcalendar[Calendar.SECOND] =0
+            fourcalendar[Calendar.MILLISECOND] =0
         }
         bindf.thu.setOnClickListener {
-          //th =5;
-            arrayList.add(5)
-//            fvcalendar= Calendar.getInstance()
-//            fvcalendar[Calendar.DAY_OF_WEEK]=th
-//            fvcalendar[Calendar.HOUR_OF_DAY]=mat.hour
-//            fvcalendar[Calendar.MINUTE] = mat .minute
-//            fvcalendar[Calendar.SECOND] =0
-//            fvcalendar[Calendar.MILLISECOND] =0
+          th =5
+
+            fvcalendar= Calendar.getInstance()
+            fvcalendar[Calendar.DAY_OF_WEEK]=th
+            fvcalendar[Calendar.HOUR_OF_DAY]=mat.hour
+            fvcalendar[Calendar.MINUTE] = mat .minute
+            fvcalendar[Calendar.SECOND] =0
+            fvcalendar[Calendar.MILLISECOND] =0
         }
         bindf.fri.setOnClickListener {
-            //fr =6;
-            arrayList.add(6)
-//            sixcalendar= Calendar.getInstance()
-//            sixcalendar[Calendar.DAY_OF_WEEK]=fr
-//            sixcalendar[Calendar.HOUR_OF_DAY]=mat.hour
-//            sixcalendar[Calendar.MINUTE] = mat .minute
-//            sixcalendar[Calendar.SECOND] =0
-//            sixcalendar[Calendar.MILLISECOND] =0
+            fr =6
+
+            sixcalendar= Calendar.getInstance()
+            sixcalendar[Calendar.DAY_OF_WEEK]=fr
+            sixcalendar[Calendar.HOUR_OF_DAY]=mat.hour
+            sixcalendar[Calendar.MINUTE] = mat .minute
+            sixcalendar[Calendar.SECOND] =0
+            sixcalendar[Calendar.MILLISECOND] =0
         }
         bindf.st.setOnClickListener {
-            //sat =7;
-            arrayList.add(7)
-//            svcalendar= Calendar.getInstance()
-//            svcalendar[Calendar.DAY_OF_WEEK]=sat
-//            svcalendar[Calendar.HOUR_OF_DAY]=mat.hour
-//            svcalendar[Calendar.MINUTE] = mat .minute
-//            svcalendar[Calendar.SECOND] =0
-//            svcalendar[Calendar.MILLISECOND] =0
+            sat =7
+
+            svcalendar= Calendar.getInstance()
+            svcalendar[Calendar.DAY_OF_WEEK]=sat
+            svcalendar[Calendar.HOUR_OF_DAY]=mat.hour
+            svcalendar[Calendar.MINUTE] = mat .minute
+            svcalendar[Calendar.SECOND] =0
+            svcalendar[Calendar.MILLISECOND] =0
         }
 
         bindf.button.setOnClickListener {
@@ -138,28 +146,65 @@ class floatData : AppCompatActivity() {
             
             SetAlram()
 
+            val bundle = Bundle()
+
+            bundle.putInt("s", su)
+            bundle.putInt("m", mu)
+            bundle.putInt("tu", tu)
+            bundle.putInt("we", we)
+            bundle.putInt("th", th)
+            bundle.putInt("fr", fr)
+            bundle.putInt("st", sat)
+            bundle.putString("name",nme)
+            bundle.putString("set",k)
+            //bundle.putString("name",nme)
+
+
+            val intm = Intent(this,MainActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intm )
+
         }
     }
 
     private fun SetAlram(){
 
-        val aml = getSystemService(ALARM_SERVICE) as AlarmManager
-        val  intr = Intent(this,MyReciever::class.java)
-        padding =PendingIntent.getBroadcast(this,0,intr,0)
-        for (item in arrayList.indices) {
-            if (item!=0) {
-                fcalendar = Calendar.getInstance()
-                fcalendar[Calendar.DAY_OF_WEEK] = su
-                fcalendar[Calendar.HOUR_OF_DAY] = mat.hour
-                fcalendar[Calendar.MINUTE] = mat.minute
-                fcalendar[Calendar.SECOND] = 0
-                fcalendar[Calendar.MILLISECOND] = 0
+        val aml1 = getSystemService(ALARM_SERVICE) as AlarmManager
+        val aml2 = getSystemService(ALARM_SERVICE) as AlarmManager
+        val aml3 = getSystemService(ALARM_SERVICE) as AlarmManager
+        val aml4 = getSystemService(ALARM_SERVICE) as AlarmManager
+        val aml5 = getSystemService(ALARM_SERVICE) as AlarmManager
+        val aml6 = getSystemService(ALARM_SERVICE) as AlarmManager
+        val aml7 = getSystemService(ALARM_SERVICE) as AlarmManager
 
-                aml?.setRepeating(
-                    AlarmManager.RTC_WAKEUP, fcalendar.timeInMillis, 1 * 60 * 60 * 1000, padding
-                )
+        val  intr = Intent(this,MyReciever::class.java)
+        spadding =PendingIntent.getBroadcast(this,0,intr,0)
+        mpadding =PendingIntent.getBroadcast(this,0,intr,0)
+        tpadding =PendingIntent.getBroadcast(this,0,intr,0)
+        wpadding =PendingIntent.getBroadcast(this,0,intr,0)
+        thpadding =PendingIntent.getBroadcast(this,0,intr,0)
+        frpadding =PendingIntent.getBroadcast(this,0,intr,0)
+        stpadding =PendingIntent.getBroadcast(this,0,intr,0)
+
+        aml1?.setRepeating(
+            AlarmManager.RTC_WAKEUP, fcalendar.timeInMillis, AlarmManager.INTERVAL_DAY, spadding)
+
+
+        aml2?.setRepeating(
+            AlarmManager.RTC_WAKEUP,scalendar.timeInMillis,AlarmManager.INTERVAL_DAY,mpadding)
+        aml3?.setRepeating(
+            AlarmManager.RTC_WAKEUP,tcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,tpadding)
+
+        aml4?.setRepeating(
+            AlarmManager.RTC_WAKEUP,fourcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,wpadding)
+        aml5?.setRepeating(
+            AlarmManager.RTC_WAKEUP,fvcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,thpadding)
+        aml6?.setRepeating(
+            AlarmManager.RTC_WAKEUP,sixcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,frpadding)
+        aml7?.setRepeating(
+            AlarmManager.RTC_WAKEUP,svcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,stpadding)
             }
-        }
+
 
 //        val mpadding:PendingIntent =PendingIntent.getBroadcast(this,0,intr,0)
 //        val tpadding:PendingIntent =PendingIntent.getBroadcast(this,0,intr,0)
@@ -170,22 +215,9 @@ class floatData : AppCompatActivity() {
        // padding =PendingIntent.getBroadcast(this,0,intr,0)
 
 
-//        aml?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,fcalendar.timeInMillis,1 * 60 * 60 * 1000,padding)
-//        aml?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,scalendar.timeInMillis, AlarmManager.INTERVAL_DAY,padding)
-//        aml?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,tcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,padding)
-//        aml?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,fourcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,padding)
-//        aml?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,fvcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,padding)
-//        aml?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,sixcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,padding)
-//        aml?.setRepeating(
-//                AlarmManager.RTC_WAKEUP,svcalendar.timeInMillis, AlarmManager.INTERVAL_DAY,padding)
 
-    }
+
+
 
 
     private fun settime() {

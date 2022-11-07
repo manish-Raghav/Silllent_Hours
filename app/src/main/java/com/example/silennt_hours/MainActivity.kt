@@ -24,7 +24,9 @@ class MainActivity : AppCompatActivity() {
              startActivity(inte)
          }
 
+        val bundle = intent.extras
 
+      //  bundle.getString("id")
 
 }
 }
